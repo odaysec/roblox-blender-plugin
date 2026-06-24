@@ -235,7 +235,10 @@ class UploadStatusApi(object):
         :rtype: tuple(RobloxAssetsManagementAssetsUploadApiGetUploadStatusResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        local_var_params = {
+            'operation_id': operation_id,
+            'kwargs': kwargs
+        }
 
         all_params = [
             'operation_id'
@@ -252,7 +255,7 @@ class UploadStatusApi(object):
             ]
         )
 
-        for key, val in six.iteritems(local_var_params['kwargs']):
+        for key, val in six.iteritems(kwargs):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
