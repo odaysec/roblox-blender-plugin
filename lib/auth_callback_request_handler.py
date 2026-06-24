@@ -104,31 +104,31 @@ class AuthCallbackRequestHandler:
             event.exception = exception
             return self.__get_error_response(
                 500,
-                f"Error: No authentication code received.\n{str(exception)}",
+                "Error: No authentication code received.",
             )
         except json.JSONDecodeError as exception:
             event.exception = exception
             return self.__get_error_response(
                 500,
-                f"Error: Server's response was not valid JSON.\n{str(exception)}\n{exception.doc}",
+                "Error: Server response was invalid.",
             )
         except aiohttp.ClientResponseError as exception:
             event.exception = exception
             return self.__get_error_response(
                 exception.status,
-                f"Error: Login request failed.\n{str(exception)}",
+                "Error: Login request failed.",
             )
         except aiohttp.ClientError as exception:
             event.exception = exception
             return self.__get_error_response(
                 500,
-                f"Login request failed.\n{str(exception)}",
+                "Login request failed.",
             )
         except Exception as exception:
             event.exception = exception
             return self.__get_error_response(
                 500,
-                f"Internal client error.\n{str(exception)}",
+                "Internal client error.",
             )
         finally:
             # Fire the event to let the login function resume
