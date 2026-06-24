@@ -657,7 +657,12 @@ class MultipartUploadApi(object):
         :rtype: tuple(RobloxAssetsManagementAssetsUploadApiMultipartUploadStartResponse, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        local_var_params = {
+            'self': self,
+            'asset_id': asset_id,
+            'roblox_assets_management_assets_upload_api_multipart_upload_start_request': roblox_assets_management_assets_upload_api_multipart_upload_start_request,
+            'kwargs': kwargs
+        }
 
         all_params = [
             'asset_id',

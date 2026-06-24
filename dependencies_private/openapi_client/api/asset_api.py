@@ -261,7 +261,11 @@ class AssetApi(object):
         :rtype: tuple(RobloxLongrunningOperation, status_code(int), headers(HTTPHeaderDict))
         """
 
-        local_var_params = locals()
+        local_var_params = {
+            'asset_id': asset_id,
+            'file_content': file_content,
+            'kwargs': kwargs
+        }
 
         all_params = [
             'asset_id',
